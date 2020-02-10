@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { Router } from "react-router-dom";
 
-const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import "~/components/dependencies";
+import "~/config/ReactotronConfig";
+import Global from "~/styles/global";
+import Routes from "~/routes";
+import Header from "~/components/templates/Header";
+import Footer from "~/components/templates/Footer";
+
+import history from "~/services/history";
+import store from "~/store";
+
+const App: React.FC = () => (
+  <Provider store={store}>
+    <Router history={history}>
+      <>
+        <Header />
+        <Routes />
+        <Footer />
+      </>
+      <Global />
+    </Router>
+  </Provider>
+);
 
 export default App;

@@ -6,6 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "react",
+      "jest"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,7 +23,12 @@
     "noEmit": true,
     "jsx": "react"
   },
+  "extends": "./tsconfig.paths.json",
   "include": [
     "src"
+  ],
+  "exclude": [
+    "build",
+    "node_modules"
   ]
 }
